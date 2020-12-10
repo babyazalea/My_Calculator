@@ -1,0 +1,2 @@
+com/babyazalea/mycalculator/BuildConfig.java
+ com.babyazalea.mycalculator.BuildConfig
