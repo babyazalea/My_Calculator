@@ -1682,7 +1682,7 @@ int id btnSeven 0x7f080063
 int id btnSix 0x7f080064
 int id btnThree 0x7f080065
 int id btnTwo 0x7f080066
-int id btnZeor 0x7f080067
+int id btnZero 0x7f080067
 int id buttonPanel 0x7f080068
 int id cache_measures 0x7f080069
 int id cancel_button 0x7f08006a

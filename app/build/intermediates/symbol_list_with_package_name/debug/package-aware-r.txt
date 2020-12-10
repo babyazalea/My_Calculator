@@ -1683,7 +1683,7 @@ id btnSeven
 id btnSix
 id btnThree
 id btnTwo
-id btnZeor
+id btnZero
 id buttonPanel
 id cache_measures
 id cancel_button
