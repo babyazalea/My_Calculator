@@ -20,9 +20,6 @@ class MainActivity : AppCompatActivity() {
     fun onDigit(view: View) {
         tvInput.append((view as Button).text)
         lastNumeric = true
-
-        if(tvInput.text.contains("1"))
-            tvInput.text= "haha"
     }
 
     fun onClear(view: View) {
@@ -36,6 +33,34 @@ class MainActivity : AppCompatActivity() {
             tvInput.append(".")
             lastNumeric = false
             lastDot = true
+        }
+    }
+
+    fun onEqual(view: View) {
+        if(lastNumeric){
+            var tvValue = tvInput.text.toString()
+            var prefix = ""
+            try{
+                if(tvValue.startsWith("-")){
+                    prefix= "-"
+                    tvValue = tvValue.substring(1)
+                }
+
+                if(tvValue.contains("-")){
+                    val splitValue = tvValue.split("-")
+
+                    var one = splitValue[0]
+                    var two = splitValue[1]
+
+                    if(!prefix.isEmpty()){
+                        one = prefix + one
+                    }
+
+                    tvInput.text =(one.toDouble() - two.toDouble()).toString()
+                }
+            }catch (error: ArithmeticException){
+                error.printStackTrace()
+            }
         }
     }
 
