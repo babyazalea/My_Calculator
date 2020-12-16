@@ -56,12 +56,52 @@ class MainActivity : AppCompatActivity() {
                         one = prefix + one
                     }
 
-                    tvInput.text =(one.toDouble() - two.toDouble()).toString()
+                    tvInput.text =removeZeroAfterDot((one.toDouble() - two.toDouble()).toString())
+                }else if(tvValue.contains("*")){
+                    val splitValue = tvValue.split("*")
+
+                    var one = splitValue[0]
+                    var two = splitValue[1]
+
+                    if(!prefix.isEmpty()){
+                        one = prefix + one
+                    }
+
+                    tvInput.text =removeZeroAfterDot((one.toDouble() * two.toDouble()).toString())
+                } else if(tvValue.contains("+")){
+                    val splitValue = tvValue.split("+")
+
+                    var one = splitValue[0]
+                    var two = splitValue[1]
+
+                    if(!prefix.isEmpty()){
+                        one = prefix + one
+                    }
+
+                    tvInput.text =removeZeroAfterDot((one.toDouble() + two.toDouble()).toString())
+                } else if(tvValue.contains("/")){
+                    val splitValue = tvValue.split("/")
+
+                    var one = splitValue[0]
+                    var two = splitValue[1]
+
+                    if(!prefix.isEmpty()){
+                        one = prefix + one
+                    }
+
+                    tvInput.text =removeZeroAfterDot((one.toDouble() / two.toDouble()).toString())
                 }
             }catch (error: ArithmeticException){
                 error.printStackTrace()
             }
         }
+    }
+
+    private fun removeZeroAfterDot(result: String) : String{
+        var value = result
+        if(result.contains(".0"))
+            value = result.substring(0, result.length - 2)
+        return value
     }
 
     fun onOperator(view: View) {
